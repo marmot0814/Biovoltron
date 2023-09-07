@@ -79,16 +79,16 @@ target_link_libraries(biovoltron INTERFACE hts)
 target_compile_options(biovoltron INTERFACE
   -mavx -mavx2
   -Wno-sign-compare -Wno-nonnull -Wno-char-subscripts -Wno-narrowing)
-  
+
 # build test
 option(BIOVOLTRON_TESTS "Build the tests" ON)
 if(BIOVOLTRON_TESTS)
 include(CTest)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/tests)
 endif()
-# 
+
 # build document
-# option(BIOVOLTRON_DOC "Build documentation" OFF)
-# if (BIOVOLTRON_DOC)
-#   add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/doc)
-# endif()
+option(BIOVOLTRON_DOC "Build documentation" ON)
+if (BIOVOLTRON_DOC)
+  add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/doc)
+endif()
