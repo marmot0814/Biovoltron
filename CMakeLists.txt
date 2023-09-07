@@ -81,11 +81,11 @@ target_compile_options(biovoltron INTERFACE
   -Wno-sign-compare -Wno-nonnull -Wno-char-subscripts -Wno-narrowing)
   
 # build test
-# option(BIOVOLTRON_TESTS "Build the tests" ON)
-# if(BIOVOLTRON_TESTS)
-# include(CTest)
-# add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/tests)
-# endif()
+option(BIOVOLTRON_TESTS "Build the tests" ON)
+if(BIOVOLTRON_TESTS)
+include(CTest)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/tests)
+endif()
 # 
 # build document
 # option(BIOVOLTRON_DOC "Build documentation" OFF)
