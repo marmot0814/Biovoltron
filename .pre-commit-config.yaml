@@ -6,7 +6,6 @@ repos:
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
-    -   id: check-added-large-files
 
 -   repo: https://github.com/pre-commit/mirrors-clang-format
     rev: '0c9f6988b324eb7fc7dcf171bfce13faa9b13ad3'  # Use the sha / tag you want to point at

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 project(biovoltron-test)
 
+include_directories(${CMAKE_CURRENT_LIST_DIR})
+
 option(GCOV "Build with gcov" OFF)
 if (GCOV)
   add_compile_options("--coverage")
