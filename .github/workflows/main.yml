@@ -20,6 +20,13 @@ jobs:
         shell: bash
     steps:
     - uses: actions/checkout@v2
-    - name: Build
+    - name: submodules
       run: |
-        mkdir build && cd build && cmake .. -DGCOV=ON && make -j
+        git submodule init
+        git submodule update --recursive
+    - name: build
+      run: |
+        mkdir build
+        cd build
+        cmake .. -DGCOV=ON
+        make -j
