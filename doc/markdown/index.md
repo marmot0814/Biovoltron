@@ -7,7 +7,7 @@ Features
 --------
 
 * Use C++20.
-* Fast (see [Benchmark](doc/markdown/benchmark.md)).
+* Fast (see [Benchmark](benchmark.md)).
 
 Biovoltron at a glance
 ---------------------
@@ -69,14 +69,14 @@ Installation
 ------------
 
 We recommend that you use CMake to build your project.
-See [Installation](doc/markdown/installation.md).
+See [Installation](installation.md).
 
 Contribute
 ----------
 
-See [Contribute](doc/markdown/contribute.md).
+See [Contribute](contribute.md).
 
 License
 -------
 
-Biovoltron is licensed under the [MIT](LICENSE) license.
+Biovoltron is licensed under the MIT license.

@@ -49,14 +49,14 @@ cd Biovoltron
 mkdir build && cd build
 cmake ..
 make -j
-make test
+./tests/biovoltron-test
 ```
 
 
 ## How to build your first example with Biovoltron
 After we passed the unit test, we can now compile and run a small example.
 First, we create our `main.cpp` under the `src` directory with the following content.
-```cpp=
+```cpp
 #include <iostream>
 #include <sstream>
 #include <biovoltron/file_io/fasta.hpp>
@@ -74,7 +74,7 @@ int main() {
 ```
 
 To compile the source code, create the following `CMakeLists.txt`:
-```cmake=
+```cmake
 cmake_minimum_required (VERSION 3.16)
 
 # your project name
@@ -117,4 +117,4 @@ hello-world
 ACTG
 ```
 
-Please follow our [Tutorial](doc/markdown/tutorial.md) for more advanced topics!
+Please follow our [Tutorial](tutorial.md) for more advanced topics!

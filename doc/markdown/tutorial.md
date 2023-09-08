@@ -6,7 +6,7 @@ This document provides example recipes on how to carry out particular tasks usin
 ## Read sequence files
 - Combined with `std::ranges`, biovoltron enable users to easily input common bioinformation format.
 
-```cpp=
+```cpp
 #include <iostream>
 #include <sstream>
 #include <ranges>
@@ -34,7 +34,7 @@ int main() {
 ## Construction and assignment of biovoltron::istring symbols
 - The design of `biovoltron::istring` makes dna/rna string convert to numeric/bit representation easily.
 
-```cpp=
+```cpp
 #include <cassert>
 #include <iostream>
 #include <biovoltron/utility/istring.hpp>
@@ -57,7 +57,7 @@ int main() {
 ## Compressed vector(DibitVector) along with std::ranges
 - Not only `biovoltron::istring`, `biovoltron::DibitVector` can also paired with std::ranges easily.
 
-```cpp=
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <ranges>
@@ -85,7 +85,7 @@ int main() {
 ## Serializer
 - `biovoltron::Serializer` can archieve all kinds of random access container(satisfied by the std::ranges::random_access_range concept), including `biovoltron::xbit_vector`.
 
-```cpp=
+```cpp
 #include <string>
 #include <biovoltron/container/xbit_vector.hpp>
 #include <biovoltron/utility/archive/serializer.hpp>
@@ -131,7 +131,7 @@ The memory usage for FMIndex in run time is affect by above parameters. Take a 3
     - Noticed that in default mode we dont sampling suffix value since this can reduce frequently memory allocation and intense computation when occurs massive query.
 - lookup table: `4^lookup_len(14) * 4 / 1024^3 = 1Gb`.
 
-```cpp=
+```cpp
 #include <iostream>
 #include <ranges>
 #include <biovoltron/algo/align/exact_match/fm_index.hpp>
@@ -191,7 +191,7 @@ int main(int argc, char** argv) {
 ## SmithWaterman with simd acceleration
 - `Biovoltron::SmithWaterman` is modern C++ Smith-Waterman wrapper which using SSW Library as a underlying code base.
 
-```cpp=
+```cpp
 #include <iostream>
 #include <biovoltron/utility/istring.hpp>
 #include <biovoltron/algo/align/inexact_match/smithwaterman_sse.hpp>
@@ -213,7 +213,7 @@ int main() {
 ```
 
 ## Annotator
-```cpp=
+```cpp
 #include <cassert>
 #include <biovoltron/algo/annotate/annotator.hpp>
 
@@ -250,7 +250,7 @@ int main() {
 ```
 
 ## Variant calling
-```cpp=
+```cpp
 #include <biovoltron/pipe/algo_pipe.hpp>
 #include <iostream>
 #include <range/v3/all.hpp>
