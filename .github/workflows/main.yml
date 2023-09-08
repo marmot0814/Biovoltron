@@ -20,9 +20,10 @@ jobs:
         shell: bash
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-        token: ${{ secrets.PAT_TOKEN }}
+    - name: Install git on container
+      run: |
+        apt update
+        apt install -y git
     - name: build
       run: |
         mkdir build
