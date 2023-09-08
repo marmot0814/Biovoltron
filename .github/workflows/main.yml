@@ -14,13 +14,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: jhhlab/ubuntu-gcc-cmake-boost:20210811
     defaults:
       run:
         shell: bash
     steps:
     - uses: actions/checkout@v2
-    - name: install git on container
+    - name: install requirements
       run: |
         apt update
         apt install -y git
