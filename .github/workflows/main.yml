@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  # 對於 main branch 建立 Branch 與 Pull Request 時觸發 workflow 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # 允許你從 Action 頁簽上手動執行 workflow
+  workflow_dispatch:
+
+# Job 可以循序或平行執行
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: jhhlab/ubuntu-gcc-cmake-boost:20210811
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        cmake --build build -DGCOV=ON && cd build && make -j
