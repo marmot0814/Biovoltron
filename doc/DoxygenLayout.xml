@@ -5,8 +5,6 @@
     <tab type="mainpage" visible="yes" title=""/>
     <tab type="user" visible="yes" url="@ref installation" title="Installation" />
     <tab type="user" visible="yes" url="@ref tutorial" title="Tutorial" />
-    <tab type="user" visible="yes" url="@ref howto" title="How to" />
-    <tab type="user" visible="yes" url="@ref design" title="Design" />
     <tab type="user" visible="yes" url="@ref contribute" title="Contribute" />
     <tab type="user" visible="yes" url="@ref benchmark" title="Benchmark" />
 

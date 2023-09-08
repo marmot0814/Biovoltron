@@ -7,6 +7,7 @@ Features
 --------
 
 * Use C++20.
+* Fast (see [benchmark](doc/markdown/benchmark.md)).
 
 Biovoltron at a glance
 ---------------------
@@ -61,6 +62,7 @@ Dependencies
 * boost 1.74.0+
 * zlib 1.2.11+
 * tbb 2020.3+
+* range-v3 0.11.0+
 * cmake 3.16+ (optional)
 
 Installation
@@ -68,20 +70,6 @@ Installation
 
 We recommend that you use CMake to build your project.
 See [installation](doc/markdown/installation.md).
-
-Quick setup without CMake.
-1. Clone the repository.
-2. Compile your file using the following command.
-
-```sh
-g++                               \
--std=c++20                        \
--I path/to/Biovoltron/include/     \
--I path/to/Biovoltron/lib/         \
--ltbb -lz -pthread                \
-path/to/Biovoltron/lib/ssw.cpp     \
-YOUR_FILE.cpp
-```
 
 Contribute
 ----------
