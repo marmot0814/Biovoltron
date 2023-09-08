@@ -20,10 +20,13 @@ jobs:
         shell: bash
     steps:
     - uses: actions/checkout@v2
-    - name: Install git on container
+    - name: install git on container
       run: |
         apt update
         apt install -y git
+    - name: checkout submodules
+      run: |
+        git submodule update --init --recursive
     - name: build
       run: |
         mkdir build
