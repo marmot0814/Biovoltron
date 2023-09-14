@@ -14,18 +14,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
+    container: jhhlab/biovoltron-ci-env:20230914
     steps:
     - uses: actions/checkout@v2
-    - name: install requirements
-      run: |
-        sudo apt update
-        sudo apt install -y git doxygen libboost-all-dev
-    - name: checkout submodules
-      run: |
-        git submodule update --init --recursive
+      with:
+        submodules: recursive
     - name: build
       run: |
         mkdir build
