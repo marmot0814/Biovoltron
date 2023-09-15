@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     container: jhhlab/biovoltron-ci-env:20230914
     steps:
@@ -19,59 +19,11 @@ jobs:
         mkdir build
         cd build
         cmake .. -DGCOV=ON -DBIOVOLTRON_DOC=ON
-        make biovoltron-test -j
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: biovoltron-build
-        path: build
-
-  test:
-    runs-on: ubuntu-latest
-    container: jhhlab/biovoltron-ci-env:20230914
-    needs: build
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Downlaod production artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: biovoltron-build
+        make -j
     - name: Run unit-test
       run: |
         ./tests/biovoltron-test
-
-  pages:
-    runs-on: ubuntu-latest
-    container: jhhlab/biovoltron-ci-env:20230914
-    needs: build
-    steps:
-    - uses: actions/checkout@v2
+    - name: Deploy preview
+      uses: rossjrw/pr-preview-action@v1
       with:
-        submodules: recursive
-    - name: Downlaod production artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: biovoltron-build
-    - name: Build Doxygen pages
-      run: |
-        make -j
-    - name: deploy pages
-      env:
-        MY_SECRET  : ${{secrets.PAT_TOKEN}}
-        USER_NAME  : githubaction
-        USER_EMAIL : githubaction@fake.com
-        PUBLISH_DIR: build/doc/doxygen/html
-      run: |
-        cd $PUBLISH_DIR
-        git init
-        git config --local user.name $USER_NAME
-        git config --local user.email $USER_EMAIL
-        git status
-        git remote add origin https://$MY_SECRET@github.com/$GITHUB_REPOSITORY.git
-        git checkout -b gh-pages
-        git add --all
-        git commit -m "deploy to Github pages"
-        git push origin gh-pages -f
-        echo 🤘 deploy gh-pages complete.
+        source-dir: ./doc/doxygen/html
