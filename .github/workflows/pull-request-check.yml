@@ -22,9 +22,9 @@ jobs:
         make biovoltron-test -j
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
-        with:
-          name: biovoltron-build
-          path: build
+      with:
+        name: biovoltron-build
+        path: build
 
   test:
     runs-on: ubuntu-latest
@@ -36,8 +36,8 @@ jobs:
         submodules: recursive
     - name: Downlaod production artifacts
       uses: actions/upload-artifact@v3
-        with:
-          name: biovoltron-build
+      with:
+        name: biovoltron-build
     - name: Run unit-test
       run: |
         cd build
@@ -53,8 +53,8 @@ jobs:
         submodules: recursive
     - name: Downlaod production artifacts
       uses: actions/upload-artifact@v3
-        with:
-          name: biovoltron-build
+      with:
+        name: biovoltron-build
     - name: Build Doxygen pages
       run: |
         cd build
