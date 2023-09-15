@@ -43,6 +43,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: Biovoltron-document
+        path: build/doc/doxygen/html
     - name: debug
       run: |
         ls -R
