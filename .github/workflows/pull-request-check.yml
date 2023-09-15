@@ -40,8 +40,6 @@ jobs:
         name: biovoltron-build
     - name: Run unit-test
       run: |
-        ls -R
-        cd build
         ./tests/biovoltron-test
 
   pages:
@@ -58,7 +56,6 @@ jobs:
         name: biovoltron-build
     - name: Build Doxygen pages
       run: |
-        cd build
         make -j
     - name: deploy pages
       env:
