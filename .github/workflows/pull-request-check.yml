@@ -35,7 +35,7 @@ jobs:
       with:
         submodules: recursive
     - name: Downlaod production artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/download-artifact@v3
       with:
         name: biovoltron-build
     - name: Run unit-test
@@ -52,7 +52,7 @@ jobs:
       with:
         submodules: recursive
     - name: Downlaod production artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/download-artifact@v3
       with:
         name: biovoltron-build
     - name: Build Doxygen pages
