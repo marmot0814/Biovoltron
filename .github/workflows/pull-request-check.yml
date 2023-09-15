@@ -22,6 +22,7 @@ jobs:
         make -j
     - name: Run unit-test
       run: |
+        ls -R
         ./tests/biovoltron-test
     - name: Deploy preview
       uses: rossjrw/pr-preview-action@v1
