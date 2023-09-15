@@ -22,9 +22,9 @@ jobs:
         make -j
     - name: Run unit-test
       run: |
-        ls -R
+        cd build
         ./tests/biovoltron-test
     - name: Deploy preview
       uses: rossjrw/pr-preview-action@v1
       with:
-        source-dir: ./doc/doxygen/html
+        source-dir: ./build/doc/doxygen/html
