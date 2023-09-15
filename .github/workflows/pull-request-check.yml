@@ -2,6 +2,9 @@ name: pull-request-check
 
 concurrency: preview-${{ github.ref }}
 
+permissions:
+  pull-requests: write
+
 on:
   pull_request:
     branches: [ master ]
