@@ -40,17 +40,13 @@ jobs:
     needs: build-and-test
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
     - name: Download Biovoltron document preview
       uses: actions/download-artifact@v3
       with:
         name: Biovoltron-document
         path: build/doc/doxygen/html
-    - name: debug
-      run: |
-        ls -R
     - name: Deploy preview
       uses: rossjrw/pr-preview-action@v1
       with:
         source-dir: build/doc/doxygen/html
+        token: ${{ secrets.PAT_TOKEN }}
